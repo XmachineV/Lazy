@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: './orders/orders.module#OrdersModule'
   },
   {
+    path: 'comparator',
+    loadChildren: './td-form/td-form.module#TdFormModule'
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'
