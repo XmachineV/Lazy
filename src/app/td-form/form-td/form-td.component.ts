@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-form-td',
@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-td.component.css']
 })
 export class FormTdComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
 
+  
 }
