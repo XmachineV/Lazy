@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[compare]',
-  providers:[{provide:NG_VALIDATORS,useExisting: CompareValidatorDirective, multi:true}]
+  providers: [{ provide: NG_VALIDATORS, useExisting: CompareValidatorDirective, multi: true }]
 })
 export class CompareValidatorDirective implements Validator {
   @Input('compare') controlNameToCompare: string;
@@ -12,13 +12,17 @@ export class CompareValidatorDirective implements Validator {
   validate(c: AbstractControl): ValidationErrors | null {
     const controlToCompare = c.root.get(this.controlNameToCompare);
 
+    if (c.value == null || c.value.length === 0) {
+      return null;
+    }
+
     if (controlToCompare) {
       const subscription: Subscription = controlToCompare.valueChanges.subscribe(() => {
         c.updateValueAndValidity();
         subscription.unsubscribe();
       });
     }
-    return controlToCompare && controlToCompare.value != c.value ? {'compare' : true}:null;
+    return controlToCompare && controlToCompare.value != c.value ? { 'compare': true } : null;
   }
 
 }

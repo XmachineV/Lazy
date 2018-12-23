@@ -1,16 +1,31 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand " routerLink="">Denis Baroni</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<button routerLink="/lazy">lazy</button>
-<button routerLink="/orders">Orders</button>
-<button routerLink="/orders/teste">Teste</button>
-<button routerLink="/comparator">Comparação</button>
-<button routerLink="">Home</button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Exemples
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/lazy">Lazy</a>
+            <a class="dropdown-item" routerLink="/orders">Orders</a>
+            <a class="dropdown-item" routerLink="/orders/teste">Test</a>
+            <a class="dropdown-item" routerLink="/comparator">Comparator</a>
 
-
-
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container mt4">
   <div class="row">
     <div class="col">

@@ -1,6 +1,22 @@
 <h2>Tempkate-driven Form</h2>
 <form #f="ngForm">
   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" name="email" ngModel required #email="ngModel">
+    <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+      Email is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email Confirm</label>
+    <input type="email" class="form-control" name="emailConfim" ngModel #emailConfim="ngModel" required
+      compare="email">
+    <div class="text-danger" *ngIf="emailConfim.invalid && (emailConfim.dirty || emailConfim.touched)">
+      <div *ngIf="emailConfim.errors['required']">Email confirm is required</div>
+      <div *ngIf="emailConfim.errors['compare']">Email confirm not match</div>
+    </div>
+  </div>
+  <div class="form-group">
     <label>Password</label>
     <input type="password" class="form-control" name="password" ngModel required #password="ngModel">
     <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
@@ -9,7 +25,8 @@
   </div>
   <div class="form-group">
     <label>Password Confirm</label>
-    <input type="password" class="form-control" name="passwordConfirm" ngModel #passwordConfirm="ngModel" required compare="password">
+    <input type="password" class="form-control" name="passwordConfirm" ngModel #passwordConfirm="ngModel" required
+      compare="password">
     <div class="text-danger" *ngIf="passwordConfirm.invalid && (passwordConfirm.dirty || passwordConfirm.touched)">
       <div *ngIf="passwordConfirm.errors['required']">Password confirm is required</div>
       <div *ngIf="passwordConfirm.errors['compare']">Password confirm not match</div>
@@ -17,7 +34,7 @@
   </div>
   <button type="button" [disabled]="f.invalid" class="btn btn-primary">Subimit</button>
 </form>
-
+<br>
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Forn status: {{f.status}}</h5>
